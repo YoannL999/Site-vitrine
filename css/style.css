@@ -1,0 +1,7 @@
+/* Body & Main */
+body {
+    background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url("../src/background.png") center/cover no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+}
