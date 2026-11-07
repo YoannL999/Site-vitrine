@@ -1,19 +1,146 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>yo.@nline</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#05070d">
+  <meta name="description" content="yo.@nline — L'ailleurs commence ici. Création web en Mayenne et univers interactif Mythweave.">
+
+  <title>yo.@nline — L'ailleurs commence ici.</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
-<body>
-    <header>
-        
-    </header>
-    <h1>Site vitrine</h1>
-    <p>En cours de construction</p>
+
+<body class="intro-running">
+
+  <!-- INTRODUCTION -->
+  <div class="intro-curtain" aria-hidden="true"></div>
+
+  <!-- EN-TÊTE -->
+  <header class="site-header" id="top">
+
+    <a class="brand intro-logo" href="#accueil" aria-label="yo.@nline — accueil">
+      y<span class="cyan">o</span>.<span class="violet">@</span>n<span class="logo-line">line</span>
+    </a>
+
+    <span class="status">
+      <span class="status-dot"></span>
+      <span id="status-label">ONLINE</span>
+    </span>
+
+    <span class="header-location">MAYENNE / FR</span>
+
+    <nav class="header-menu" aria-label="Navigation principale">
+      <a href="#accueil">ACCUEIL</a>
+      <a href="#mythweave">MYTHWEAVE</a>
+    </nav>
+
+  </header>
+
+  <main>
+
+     <!-- CONTENEUR DES DEUX ÉCRANS -->
+    <div class="cinematic-stage">
+    <div class="cinematic-screen">
+
+    <!-- PAGE 1 : ACCUEIL -->
+    <section class="scene scene-home"
+             id="accueil"
+             aria-labelledby="home-title">
+
+      <div class="scene-bg home-bg" aria-hidden="true"></div>
+      <div class="scene-shade" aria-hidden="true"></div>
+
+      <div class="scene-content home-content">
+
+        <div class="eyebrow">
+          <span class="short-rule"></span>
+          <span>00 / HOME</span>
+        </div>
+
+        <h1 id="home-title">
+          L'AILLEURS<br>
+          COMMENCE <em>ICI.</em>
+        </h1>
+
+        <p class="scene-description">
+          Création numérique, horizons sans limites.
+        </p>
+
+        <div class="scene-meta">
+          <div>
+            <span class="meta-label">CURRENT</span>
+            <strong>MYTHWEAVE</strong>
+          </div>
+
+          <div>
+            <span class="meta-label">ACTIVITY</span>
+            <strong>DIGITAL CREATION</strong>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="explore" href="#mythweave">
+        DÉCOUVRIR <span aria-hidden="true">↓</span>
+      </a>
+
+      <span class="scene-index">01 — 02</span>
+
+    </section>
+
+    <!-- PAGE 2 : MYTHWEAVE -->
+    <section class="scene scene-mythweave"
+             id="mythweave"
+             aria-labelledby="myth-title">
+
+      <div class="scene-bg myth-bg" aria-hidden="true"></div>
+      <div class="scene-shade myth-shade" aria-hidden="true"></div>
+
+      <div class="scene-content myth-content">
+
+        <div class="eyebrow">
+          <span class="short-rule"></span>
+          <span>01 / PRODUCT</span>
+        </div>
+
+        <h2 id="myth-title">MYTHWEAVE</h2>
+
+        <p class="myth-tagline">
+          Des histoires que l'on ne se contente pas de lire.
+        </p>
+
+        <p class="myth-copy">
+          Un univers d'aventures interactives où chaque
+          choix peut changer le récit.
+        </p>
+
+        <span class="myth-pill">
+          <span class="status-dot"></span>
+          EN DÉVELOPPEMENT
+        </span>
+
+        <p class="myth-note">
+          La page de présentation dédiée sera ajoutée ultérieurement.
+        </p>
+
+      </div>
+
+      <a class="explore" href="#accueil">
+        RETOUR À L'ACCUEIL <span aria-hidden="true">↑</span>
+      </a>
+
+      <span class="scene-index">02 — 02</span>
+
+    </section>
+
+  </div><!-- Fin cinematic-screen -->
+  </div><!-- Fin cinematic-stage -->
+
+  </main>
+
 </body>
 </html>

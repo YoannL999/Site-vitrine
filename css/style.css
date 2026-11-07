@@ -1,11 +1,608 @@
-/* Body & Main */
+
+/* =====================================
+   YO.@NLINE — VARIABLES
+===================================== */
+
+:root {
+  color-scheme: dark;
+
+  --cyan: #00d8f2;
+  --violet: #9800ff;
+  --white: #f8faff;
+
+  --side: clamp(24px, 5vw, 88px);
+}
+
+/* =====================================
+   BASE
+===================================== */
+
 * {
-    font-family: "Roboto Condensed", sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url("../src/background.png") center/cover no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
+  margin: 0;
+  background: #05070d;
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 7px;
+}
+
+.cyan {
+  color: var(--cyan);
+}
+
+.violet {
+  color: var(--violet);
+}
+
+/* =====================================
+   EN-TÊTE SIGNAL
+===================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 56px);
+
+  padding: clamp(22px, 3vw, 43px) var(--side);
+
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.brand {
+  font-size: clamp(24px, 2.2vw, 35px);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 12px;
+  letter-spacing: 0.14em;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+
+  background: var(--cyan);
+  box-shadow: 0 0 14px #00d8f280;
+}
+
+.header-location {
+  margin-left: auto;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+.header-menu {
+  display: flex;
+  gap: 24px;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+}
+
+.header-menu a:hover {
+  color: var(--cyan);
+}
+
+/* =====================================
+   SECTIONS PLEIN ÉCRAN
+===================================== */
+
+.scene {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: transparent;
+}
+
+.scene-bg,
+.scene-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.scene-bg {
+  background-position: center;
+  background-size: cover;
+  transform: scale(1.035);
+}
+
+/* Images fournies */
+
+.home-bg {
+  background-image: url("../assets/images/accueil.png");
+}
+
+.myth-bg {
+  background-image: url("../assets/images/mythweave.png");
+}
+
+/* Dégradés pour rendre le texte lisible */
+
+.scene-shade {
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 8, 20, 0.73),
+      rgba(2, 8, 20, 0.22) 60%,
+      rgba(2, 8, 20, 0.12)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.55),
+      transparent 35%
+    );
+}
+
+.myth-shade {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 5, 16, 0.76),
+      rgba(3, 5, 16, 0.18) 68%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6),
+      transparent 42%
+    );
+}
+
+/* =====================================
+   CONTENU COMMUN
+===================================== */
+
+.scene-content {
+  position: relative;
+  max-width: 1200px;
+
+  padding:
+    clamp(185px, 26vh, 290px)
+    var(--side)
+    145px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-bottom: 36px;
+
+  font-size: 12px;
+  letter-spacing: 0.2em;
+}
+
+.short-rule {
+  width: 32px;
+  height: 1px;
+  background: white;
+}
+
+.explore {
+  position: absolute;
+  bottom: 55px;
+  left: var(--side);
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+.explore span {
+  font-size: 25px;
+}
+
+.scene-index {
+  position: absolute;
+  bottom: 63px;
+  right: var(--side);
+
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+/* =====================================
+   PAGE 1 — ACCUEIL
+===================================== */
+
+.home-content h1 {
+  margin: 0;
+
+  font-size: clamp(50px, 7.5vw, 122px);
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+
+  text-wrap: balance;
+}
+
+.home-content h1 em {
+  font-style: normal;
+}
+
+.scene-description {
+  margin-top: 30px;
+
+  font-size: clamp(16px, 1.45vw, 21px);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+
+  color: #e8eaf0;
+}
+
+.scene-meta {
+  display: flex;
+  gap: clamp(40px, 7vw, 110px);
+  margin-top: 55px;
+}
+
+.scene-meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.meta-label {
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: #c4d2de;
+}
+
+.scene-meta strong {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+
+/* =====================================
+   PAGE 2 — MYTHWEAVE
+===================================== */
+
+.myth-content h2 {
+  margin: 0;
+
+  font-size: clamp(58px, 9vw, 150px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.myth-tagline {
+  margin: 28px 0 12px;
+  font-size: clamp(19px, 2vw, 28px);
+}
+
+.myth-copy {
+  max-width: 440px;
+  line-height: 1.65;
+  color: #e2e5ec;
+}
+
+.myth-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 24px;
+
+  font-size: 11px;
+  letter-spacing: 0.17em;
+}
+
+.myth-note {
+  margin-top: 24px;
+  font-size: 12px;
+  color: #d4d6e0;
+}
+
+/* =====================================
+   ANIMATION D'INTRODUCTION — LOGO UNIQUE
+===================================== */
+
+.intro-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #000;
+  pointer-events: none;
+}
+
+/* Le header reste visible : seuls ses autres éléments sont masqués. */
+.site-header {
+  opacity: 1;
+  z-index: 120;
+  transition: none;
+}
+
+.site-header > :not(.brand) {
+  opacity: 0;
+  transition: opacity .65s ease;
+}
+
+.intro-finish .site-header > :not(.brand) {
+  opacity: 1;
+}
+
+/* Le logo garde sa taille et sa place naturelles dans le header. */
+.site-header .brand.intro-logo {
+  position: relative;
+  top: auto;
+  left: auto;
+  z-index: auto;
+  display: inline-block;
+  width: auto;
+  opacity: 1;
+  font-size: clamp(24px, 2.2vw, 35px);
+  line-height: 1;
+  white-space: nowrap;
+  transform-origin: top left;
+  will-change: transform;
+}
+
+/* Masqué avant le calcul de sa position de départ. */
+.intro-running .brand.intro-logo:not(.intro-ready) {
+  visibility: hidden;
+}
+
+.intro-running {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}
+
+.intro-running .home-bg {
+  opacity: 0;
+}
+
+.intro-running .home-content,
+.intro-running .scene-home .explore,
+.intro-running .scene-home .scene-index {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.home-bg {
+  transition: opacity 1.5s ease;
+}
+
+.home-content,
+.scene-home .explore,
+.scene-home .scene-index {
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.intro-reveal .home-bg {
+  opacity: 1;
+}
+
+.intro-reveal .intro-curtain {
+  opacity: 0;
+  transition: opacity 1.45s ease;
+}
+
+.intro-finish .home-content,
+.intro-finish .scene-home .explore,
+.intro-finish .scene-home .scene-index {
+  opacity: 1;
+  transform: none;
+}
+
+.intro-finish {
+  overflow: auto;
+}
+
+.intro-finish .intro-curtain {
+  display: none;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Trait animé sous "line" */
+
+.logo-line {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.08em;
+
+  width: 100%;
+  height: 0.025em;
+
+  background-color: #00D8F2;
+  box-shadow: 0 0 0.12em rgba(0, 216, 242, 0.65);
+
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* Dessin progressif du trait */
+.logo-line.draw-line::after {
+  animation: drawLogoLine 650ms ease-out forwards;
+}
+
+@keyframes drawLogoLine {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Ajustement visuel du caractère @ */
+.brand .violet {
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* =====================================
+   TRANSITION CINÉMATOGRAPHIQUE
+   ÉCRAN FIXE AU DÉFILEMENT
+===================================== */
+
+/* Distance de défilement pour contrôler l'animation */
+.cinematic-stage {
+  position: relative;
+  height: 300svh;
+}
+
+/* Écran maintenu en place pendant le défilement */
+.cinematic-screen {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Les deux sections occupent exactement le même écran */
+.cinematic-screen > .scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+/* L'accueil est visible au départ */
+.cinematic-screen > .scene-home {
+  z-index: 1;
+}
+
+/* Mythweave est au-dessus, mais invisible au départ */
+.cinematic-screen > #mythweave {
+  z-index: 2;
+  opacity: var(--myth-opacity, 0);
+  pointer-events: none;
+}
+
+/* =====================================
+   TRANSITION — VISIBILITÉ DES TEXTES
+===================================== */
+
+/* Le contenu de l'accueil disparaît progressivement */
+.cinematic-screen .scene-home .scene-content,
+.cinematic-screen .scene-home .explore,
+.cinematic-screen .scene-home .scene-index {
+  opacity: var(--home-text-opacity, 1);
+}
+
+/* Le contenu Mythweave reste caché jusqu'à la fin du fondu */
+.cinematic-screen #mythweave .scene-content,
+.cinematic-screen #mythweave .explore,
+.cinematic-screen #mythweave .scene-index {
+  opacity: var(--myth-text-opacity, 0);
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 700px) {
+
+  .site-header {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .header-location {
+    display: none;
+  }
+
+  .header-menu {
+    margin-left: auto;
+    gap: 12px;
+    font-size: 9px;
+  }
+
+  .status {
+    font-size: 10px;
+  }
+
+  .scene-content {
+    padding-top: 32svh;
+  }
+
+  .home-content h1 {
+    font-size: clamp(45px, 10vw, 75px);
+  }
+
+  .scene-meta {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .myth-content h2 {
+    font-size: clamp(47px, 12vw, 88px);
+  }
+
+  .scene-bg {
+    background-position: 55% center;
+  }
+
+  .myth-bg {
+    background-position: 62% center;
+  }
+}
+
+/* Accessibilité : mouvements réduits */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
