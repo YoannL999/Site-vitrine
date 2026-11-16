@@ -1,28 +1,25 @@
-
-/* =====================================
-   YO.@NLINE — VARIABLES
-===================================== */
+/* =========================================
+   YO.@NLINE — 01. VARIABLES
+========================================= */
 
 :root {
   color-scheme: dark;
-
   --cyan: #00d8f2;
   --violet: #9800ff;
   --white: #f8faff;
-
   --side: clamp(24px, 5vw, 88px);
 }
 
-/* =====================================
-   BASE
-===================================== */
 
-* {
-  box-sizing: border-box;
-}
+/* =========================================
+   02. BASE ET STYLES GÉNÉRAUX
+========================================= */
+
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -43,33 +40,26 @@ a:focus-visible {
   outline-offset: 7px;
 }
 
-.cyan {
-  color: var(--cyan);
-}
+.cyan { color: var(--cyan); }
+.violet { color: var(--violet); }
 
-.violet {
-  color: var(--violet);
-}
 
-/* =====================================
-   EN-TÊTE SIGNAL
-===================================== */
+/* =========================================
+   03. EN-TÊTE ET IDENTITÉ
+========================================= */
 
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 30;
-
+  z-index: 120;
   display: flex;
   align-items: center;
   gap: clamp(16px, 3vw, 56px);
-
   padding: clamp(22px, 3vw, 43px) var(--side);
-
-  opacity: 0;
-  transition: opacity 0.5s ease;
+  opacity: 1;
+  transition: none;
 }
 
 .brand {
@@ -80,11 +70,14 @@ a:focus-visible {
   white-space: nowrap;
 }
 
+.brand .violet {
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
 .status {
   display: flex;
   align-items: center;
   gap: 10px;
-
   font-size: 12px;
   letter-spacing: 0.14em;
 }
@@ -94,7 +87,6 @@ a:focus-visible {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-
   background: var(--cyan);
   box-shadow: 0 0 14px #00d8f280;
 }
@@ -104,6 +96,11 @@ a:focus-visible {
   font-size: 12px;
   letter-spacing: 0.18em;
 }
+
+
+/* =========================================
+   04. NAVIGATION PRINCIPALE
+========================================= */
 
 .header-menu {
   display: flex;
@@ -116,9 +113,14 @@ a:focus-visible {
   color: var(--cyan);
 }
 
-/* =====================================
-   SECTIONS PLEIN ÉCRAN
-===================================== */
+.header-menu a[hidden] {
+  display: none !important;
+}
+
+
+/* =========================================
+   05. STRUCTURE DES SCÈNES
+========================================= */
 
 .scene {
   position: relative;
@@ -142,7 +144,7 @@ a:focus-visible {
   transform: scale(1.035);
 }
 
-/* Images fournies */
+/* Images de fond */
 
 .home-bg {
   background-image: url("../assets/images/accueil.png");
@@ -152,7 +154,11 @@ a:focus-visible {
   background-image: url("../assets/images/mythweave.png");
 }
 
-/* Dégradés pour rendre le texte lisible */
+.web-bg {
+  background-image: url("../assets/images/web.png");
+}
+
+/* Dégradés de lisibilité */
 
 .scene-shade {
   z-index: -1;
@@ -184,14 +190,14 @@ a:focus-visible {
     );
 }
 
-/* =====================================
-   CONTENU COMMUN
-===================================== */
+
+/* =========================================
+   06. CONTENU COMMUN
+========================================= */
 
 .scene-content {
   position: relative;
   max-width: 1200px;
-
   padding:
     clamp(185px, 26vh, 290px)
     var(--side)
@@ -202,9 +208,7 @@ a:focus-visible {
   display: flex;
   align-items: center;
   gap: 18px;
-
   margin-bottom: 36px;
-
   font-size: 12px;
   letter-spacing: 0.2em;
 }
@@ -219,11 +223,9 @@ a:focus-visible {
   position: absolute;
   bottom: 55px;
   left: var(--side);
-
   display: flex;
   align-items: center;
   gap: 24px;
-
   font-size: 12px;
   letter-spacing: 0.18em;
 }
@@ -236,23 +238,21 @@ a:focus-visible {
   position: absolute;
   bottom: 63px;
   right: var(--side);
-
   font-size: 12px;
   letter-spacing: 0.18em;
 }
 
-/* =====================================
-   PAGE 1 — ACCUEIL
-===================================== */
+
+/* =========================================
+   07. ACCUEIL
+========================================= */
 
 .home-content h1 {
   margin: 0;
-
   font-size: clamp(50px, 7.5vw, 122px);
   font-weight: 300;
   line-height: 0.98;
   letter-spacing: -0.065em;
-
   text-wrap: balance;
 }
 
@@ -262,13 +262,13 @@ a:focus-visible {
 
 .scene-description {
   margin-top: 30px;
-
   font-size: clamp(16px, 1.45vw, 21px);
   font-weight: 300;
   letter-spacing: 0.02em;
-
   color: #e8eaf0;
 }
+
+/* Métadonnées de scène — à auditer */
 
 .scene-meta {
   display: flex;
@@ -294,13 +294,20 @@ a:focus-visible {
   letter-spacing: 0.12em;
 }
 
-/* =====================================
-   PAGE 2 — MYTHWEAVE
-===================================== */
+
+/* Ancien style conservé pour compatibilité */
+.myth-note {
+  margin-top: 24px;
+  font-size: 12px;
+  color: #d4d6e0;
+}
+
+/* =========================================
+   08. MYTHWEAVE — INTRODUCTION
+========================================= */
 
 .myth-content h2 {
   margin: 0;
-
   font-size: clamp(58px, 9vw, 150px);
   font-weight: 300;
   line-height: 1;
@@ -322,22 +329,138 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   margin-top: 24px;
-
   font-size: 11px;
   letter-spacing: 0.17em;
 }
 
-.myth-note {
-  margin-top: 24px;
-  font-size: 12px;
-  color: #d4d6e0;
+
+/* =========================================
+   09. WEB — INTRODUCTION ET PRESTATIONS
+========================================= */
+
+.scene-web .scene-content {
+  width: min(900px, calc(100% - 120px));
+  max-width: 900px;
 }
 
-/* =====================================
-   ANIMATION D'INTRODUCTION — LOGO UNIQUE
-===================================== */
+.scene-web h2 {
+  margin-bottom: 12px;
+  font-size: clamp(44px, 5vw, 68px);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.web-tagline {
+  max-width: 650px;
+  font-size: clamp(17px, 1.7vw, 22px);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.web-services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 40px;
+  row-gap: 18px;
+  width: 100%;
+  max-width: 850px;
+  margin-top: 26px;
+}
+
+.web-service {
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  padding-top: 10px;
+}
+
+.web-service h3 {
+  margin: 0 0 10px;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.web-service p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* =========================================
+   10. CONTACT — TEXTE ET BOUTON
+========================================= */
+
+.contact-bg {
+  background-image: url("../assets/images/contact.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.contact-shade {
+  background: linear-gradient(
+    90deg,
+    rgba(5, 9, 20, 0.65) 0%,
+    rgba(5, 9, 20, 0.35) 45%,
+    rgba(5, 9, 20, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+.contact-content {
+  transform: translateY(45px);
+  max-width: 760px;
+}
+
+.contact-content h2 {
+  margin-top: 28px;
+  margin-bottom: 24px;
+  font-size: clamp(32px, 3.6vw, 54px);
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.contact-tagline {
+  max-width: 680px;
+  font-size: clamp(15px, 1.15vw, 18px);
+  line-height: 1.7;
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 34px;
+  padding: 16px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 4px;
+  color: #fff;
+  background: rgba(8, 15, 30, 0.25);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================================
+   11. ANIMATION D'INTRODUCTION
+========================================= */
+
+/* Rideau noir initial */
 
 .intro-curtain {
   position: fixed;
@@ -347,23 +470,21 @@ a:focus-visible {
   pointer-events: none;
 }
 
-/* Le header reste visible : seuls ses autres éléments sont masqués. */
-.site-header {
-  opacity: 1;
-  z-index: 120;
-  transition: none;
-}
+/* Masquer les éléments du header pendant l'intro */
 
 .site-header > :not(.brand) {
   opacity: 0;
-  transition: opacity .65s ease;
+  transition: opacity 0.65s ease;
 }
+
+/* Affichage du header après l'intro */
 
 .intro-finish .site-header > :not(.brand) {
   opacity: 1;
 }
 
-/* Le logo garde sa taille et sa place naturelles dans le header. */
+/* Logo animé */
+
 .site-header .brand.intro-logo {
   position: relative;
   top: auto;
@@ -372,22 +493,24 @@ a:focus-visible {
   display: inline-block;
   width: auto;
   opacity: 1;
-  font-size: clamp(24px, 2.2vw, 35px);
-  line-height: 1;
-  white-space: nowrap;
   transform-origin: top left;
   will-change: transform;
 }
 
-/* Masqué avant le calcul de sa position de départ. */
+/* Logo invisible avant son initialisation */
+
 .intro-running .brand.intro-logo:not(.intro-ready) {
   visibility: hidden;
 }
+
+/* Bloquer le défilement pendant l'intro */
 
 .intro-running {
   overflow: hidden;
   scrollbar-gutter: stable;
 }
+
+/* Masquer le fond et le contenu d'accueil */
 
 .intro-running .home-bg {
   opacity: 0;
@@ -400,6 +523,8 @@ a:focus-visible {
   transform: translateY(16px);
 }
 
+/* Transitions d'apparition */
+
 .home-bg {
   transition: opacity 1.5s ease;
 }
@@ -407,17 +532,25 @@ a:focus-visible {
 .home-content,
 .scene-home .explore,
 .scene-home .scene-index {
-  transition: opacity 1s ease, transform 1s ease;
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
 }
+
+/* Révélation du fond */
 
 .intro-reveal .home-bg {
   opacity: 1;
 }
 
+/* Disparition du rideau */
+
 .intro-reveal .intro-curtain {
   opacity: 0;
   transition: opacity 1.45s ease;
 }
+
+/* Affichage du contenu d'accueil */
 
 .intro-finish .home-content,
 .intro-finish .scene-home .explore,
@@ -426,42 +559,45 @@ a:focus-visible {
   transform: none;
 }
 
+/* Réactivation du défilement */
+
 .intro-finish {
   overflow: auto;
 }
+
+/* Suppression du rideau après l'intro */
 
 .intro-finish .intro-curtain {
   display: none;
 }
 
-html {
-  scrollbar-gutter: stable;
-}
 
-/* Trait animé sous "line" */
+/* =========================================
+   12. LOGO — TRAIT ANIMÉ
+========================================= */
 
 .logo-line {
   position: relative;
   display: inline-block;
 }
 
+/* Trait cyan sous la fin du logo */
+
 .logo-line::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -0.08em;
-
   width: 100%;
   height: 0.025em;
-
-  background-color: #00D8F2;
+  background-color: #00d8f2;
   box-shadow: 0 0 0.12em rgba(0, 216, 242, 0.65);
-
   transform: scaleX(0);
   transform-origin: left center;
 }
 
-/* Dessin progressif du trait */
+/* Déclenchement du tracé */
+
 .logo-line.draw-line::after {
   animation: drawLogoLine 650ms ease-out forwards;
 }
@@ -476,23 +612,20 @@ html {
   }
 }
 
-/* Ajustement visuel du caractère @ */
-.brand .violet {
-  font-family: "Segoe UI", Arial, sans-serif;
-}
 
-/* =====================================
-   TRANSITION CINÉMATOGRAPHIQUE
-   ÉCRAN FIXE AU DÉFILEMENT
-===================================== */
+/* =========================================
+   13. MOTEUR CINÉMATOGRAPHIQUE
+========================================= */
 
-/* Distance de défilement pour contrôler l'animation */
+/* Zone de défilement des scènes */
+
 .cinematic-stage {
   position: relative;
   height: 300svh;
 }
 
-/* Écran maintenu en place pendant le défilement */
+/* Écran fixe pendant le défilement */
+
 .cinematic-screen {
   position: sticky;
   top: 0;
@@ -501,7 +634,8 @@ html {
   isolation: isolate;
 }
 
-/* Les deux sections occupent exactement le même écran */
+/* Superposition des scènes */
+
 .cinematic-screen > .scene {
   position: absolute;
   inset: 0;
@@ -510,39 +644,697 @@ html {
   min-height: 0;
 }
 
-/* L'accueil est visible au départ */
-.cinematic-screen > .scene-home {
-  z-index: 1;
-}
+/* Opacité des scènes suivantes */
 
-/* Mythweave est au-dessus, mais invisible au départ */
-.cinematic-screen > #mythweave {
-  z-index: 2;
-  opacity: var(--myth-opacity, 0);
+.cinematic-screen > .scene:not(:first-child) {
+  opacity: var(--scene-opacity, 0);
   pointer-events: none;
 }
 
-/* =====================================
-   TRANSITION — VISIBILITÉ DES TEXTES
-===================================== */
 
-/* Le contenu de l'accueil disparaît progressivement */
+/* =========================================
+   14. TRANSITIONS DES TEXTES
+========================================= */
+
+/* Accueil : opacité contrôlée par le scroll */
+
 .cinematic-screen .scene-home .scene-content,
 .cinematic-screen .scene-home .explore,
 .cinematic-screen .scene-home .scene-index {
   opacity: var(--home-text-opacity, 1);
+
+  transform: translateY(
+    calc(18px * (1 - var(--home-text-opacity, 1)))
+  );
+
+  transition: none;
 }
 
-/* Le contenu Mythweave reste caché jusqu'à la fin du fondu */
-.cinematic-screen #mythweave .scene-content,
-.cinematic-screen #mythweave .explore,
-.cinematic-screen #mythweave .scene-index {
-  opacity: var(--myth-text-opacity, 0);
+/* Pendant l'introduction */
+
+.intro-running .cinematic-screen .scene-home .scene-content,
+.intro-running .cinematic-screen .scene-home .explore,
+.intro-running .cinematic-screen .scene-home .scene-index {
+  opacity: 0;
+  transform: translateY(16px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
 }
 
-/* =====================================
-   RESPONSIVE
-===================================== */
+/* Apparition des textes après l'introduction */
+
+.intro-finish .cinematic-screen .scene-home .scene-content,
+.intro-finish .cinematic-screen .scene-home .explore,
+.intro-finish .cinematic-screen .scene-home .scene-index {
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+
+/* =========================================
+   15. TRANSITIONS DES AUTRES SCÈNES
+========================================= */
+
+/* Mythweave, Web et Contact */
+
+.cinematic-screen > .scene:not(:first-child) .scene-content,
+.cinematic-screen > .scene:not(:first-child) .explore,
+.cinematic-screen > .scene:not(:first-child) .scene-index {
+  opacity: var(--scene-text-opacity, 0);
+
+  transform: translateY(
+    calc(18px * (1 - var(--scene-text-opacity, 0)))
+  );
+
+  transition: none;
+}
+
+
+/* =========================================
+   16. MYTHWEAVE — ENCART DU CONCEPT
+========================================= */
+
+.myth-concept {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: min(850px, 88%);
+  height: fit-content;
+  max-height: calc(100svh - 120px);
+
+  margin: auto;
+  padding: 38px 42px;
+
+  color: #ffffff;
+  background: rgba(15, 19, 32, 0.82);
+  border: 1px solid rgba(175, 145, 225, 0.35);
+  border-radius: 14px;
+
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+
+/* =========================================
+   17. MYTHWEAVE — EN-TÊTE DU CONCEPT
+========================================= */
+
+.myth-concept-label {
+  display: block;
+  margin-bottom: 18px;
+  color: #bba5e8;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.myth-concept-header h3 {
+  margin: 0 0 18px;
+  font-size: clamp(25px, 3vw, 38px);
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+.myth-concept-header p {
+  max-width: 650px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   18. MYTHWEAVE — RUBRIQUES
+========================================= */
+
+.myth-concept-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+
+  margin-top: 30px;
+  padding: 28px 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.myth-concept-item-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.myth-concept-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: #bba5e8;
+}
+
+.myth-concept-item h4 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.myth-concept-item p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   19. MYTHWEAVE — STATUT DU PROJET
+========================================= */
+
+.myth-concept-status {
+  margin-top: 24px;
+  color: #bba5e8;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+
+/* =========================================
+   20. MYTHWEAVE — VERSION MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .myth-concept {
+    width: 90%;
+    max-height: calc(100svh - 100px);
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  .myth-concept-label {
+    font-size: 9px;
+    margin-bottom: 12px;
+  }
+
+  .myth-concept-header h3 {
+    font-size: clamp(22px, 5.5vw, 29px);
+  }
+
+  .myth-concept-header p {
+    font-size: 13px;
+  }
+
+  .myth-concept-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 20px 0;
+  }
+
+  .myth-concept-item p {
+    font-size: 13px;
+  }
+
+  .myth-concept-status {
+    margin-top: 18px;
+  }
+}
+
+
+/* =========================================
+   21. MYTHWEAVE — FONDU INTRO / CONCEPT
+========================================= */
+
+.cinematic-screen > .scene.scene-mythweave
+.scene-content.myth-content {
+  opacity: calc(
+    var(--scene-text-opacity, 0) *
+    (1 - var(--myth-concept-fade, 0))
+  );
+}
+
+
+/* =========================================
+   22. WEB — PRÉSENTATION D'UNE RÉALISATION
+========================================= */
+
+.web-project {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 55px;
+
+  padding: 100px 8% 80px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Informations à gauche */
+
+.web-project-info {
+  flex: 1;
+  max-width: 470px;
+}
+
+.web-project-label {
+  display: block;
+  margin-bottom: 22px;
+
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.web-project-info h3 {
+  margin: 0 0 22px;
+
+  color: #ffffff;
+  font-size: clamp(30px, 3vw, 46px);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.web-project-info p {
+  max-width: 400px;
+  margin: 0 0 30px;
+
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Lien vers le site */
+
+.web-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  padding-bottom: 8px;
+}
+
+.web-project-link:hover {
+  border-color: #42dfff;
+}
+
+
+/* =========================================
+   23. WEB — CAPTURE DU SITE
+========================================= */
+
+.web-project-preview {
+  display: block;
+  flex: 0 1 40%;
+  max-width: 480px;
+
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.web-project-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  transform-origin: center center;
+  transition: transform 0.4s ease;
+}
+
+
+/* =========================================
+   24. WEB — INTERACTIONS
+========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .web-project-preview:hover {
+    border-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+  }
+
+  .web-project-preview:hover img {
+    transform: scale(1.02);
+  }
+}
+
+/* Accessibilité au clavier */
+
+.web-project-preview:focus-visible {
+  outline: 2px solid #42dfff;
+  outline-offset: 4px;
+}
+
+/* Réduction des animations */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .web-project-preview,
+  .web-project-preview img {
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   25. WEB — VERSION MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .web-project {
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    padding: 100px 7% 70px;
+  }
+
+  .web-project-info {
+    flex: none;
+    width: 100%;
+  }
+
+  .web-project-info h3 {
+    font-size: 28px;
+  }
+
+  .web-project-info p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .web-project-preview {
+    flex: none;
+    width: 100%;
+    max-width: 360px;
+  }
+}
+
+
+/* =========================================
+   26. WEB — FONDU PRESTATIONS / RÉALISATION
+========================================= */
+
+.cinematic-screen > .scene.scene-web
+.scene-content.web-content {
+  opacity: calc(
+    var(--scene-text-opacity, 0) *
+    (1 - var(--web-project-fade, 0))
+  );
+}
+
+/* Opacité pilotée par JavaScript */
+
+.scene-web .web-project {
+  opacity: 0;
+  transition: none;
+}
+
+
+/* =========================================
+   27. NAVIGATION — ORDINATEUR
+========================================= */
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Bouton hamburger masqué sur ordinateur */
+
+.menu-toggle {
+  display: none;
+}
+
+
+/* =========================================
+   28. NAVIGATION — MOBILE ET TABLETTE
+========================================= */
+
+@media (max-width: 768px) {
+
+  /* Bouton hamburger */
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+
+    margin-left: auto;
+
+    width: 46px;
+    height: 46px;
+    padding: 10px;
+
+    background: rgba(10, 20, 35, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+
+    backdrop-filter: blur(8px);
+
+    cursor: pointer;
+    z-index: 110;
+  }
+
+  /* Trois traits du hamburger */
+
+  .menu-toggle span {
+    display: block;
+    flex: 0 0 2px;
+
+    width: 24px;
+    min-width: 24px;
+    height: 2px;
+
+    padding: 0;
+    margin: 0;
+
+    background: #ffffff;
+    border-radius: 2px;
+    transform: none;
+  }
+
+  /* Transformation en croix */
+
+  .menu-toggle.is-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.is-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Panneau de navigation */
+
+  .header-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+
+    width: 210px;
+    padding: 12px;
+
+    background: rgba(15, 25, 45, 0.48);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  /* Menu ouvert */
+
+  .header-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Liens du menu */
+
+  .header-menu a {
+    display: block;
+    padding: 12px 14px;
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    text-decoration: none;
+
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+
+  .header-menu a:hover,
+  .header-menu a:focus-visible {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+
+/* =========================================
+   29. CONTACT — INTERACTIONS
+========================================= */
+
+/* Autoriser les clics sur la scène Contact */
+
+.cinematic-screen > .scene-contact {
+  pointer-events: auto;
+}
+
+.scene-contact .contact-button {
+  position: relative;
+  pointer-events: auto;
+}
+
+
+/* =========================================
+   30. COMPTEURS DES SCÈNES
+========================================= */
+
+/* Flèche fixe à côté du numéro */
+
+.index-arrow {
+  display: inline-block;
+  margin-left: 12px;
+
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1;
+  vertical-align: middle;
+
+  animation: none;
+  transition: none;
+  transform: none;
+}
+
+
+/* =========================================
+   31. RESPONSIVE — WEB MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+  .scene-web .scene-content {
+    width: calc(100% - 40px);
+  }
+
+  .scene-web h2 {
+    font-size: 48px;
+  }
+
+  .web-services {
+    grid-template-columns: 1fr;
+    margin-top: 24px;
+    row-gap: 18px;
+  }
+
+  .web-service {
+    padding-top: 10px;
+  }
+
+  .web-service h3 {
+    font-size: 16px;
+  }
+
+  .web-service p {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================
+   32. RESPONSIVE — CONTACT MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .contact-content {
+    transform: translateY(20px);
+    max-width: 100%;
+  }
+
+  .contact-content h2 {
+    font-size: clamp(28px, 7vw, 38px);
+    line-height: 1.15;
+  }
+
+  .contact-tagline {
+    font-size: 15px;
+  }
+}
+
+
+/* =========================================
+   33. RESPONSIVE — PETITS ÉCRANS
+========================================= */
 
 @media (max-width: 700px) {
 
@@ -557,7 +1349,6 @@ html {
 
   .header-menu {
     margin-left: auto;
-    gap: 12px;
     font-size: 9px;
   }
 
@@ -591,7 +1382,66 @@ html {
   }
 }
 
-/* Accessibilité : mouvements réduits */
+
+/* =========================================
+   34. RESPONSIVE — WEB ÉCRANS ÉTROITS
+   Correction validée jusqu'à 430 px
+========================================= */
+
+@media (max-width: 430px) {
+
+  .scene-web .scene-content.web-content {
+    padding-top: 145px;
+    padding-bottom: 55px;
+  }
+
+  .scene-web .web-services {
+    margin-top: 18px;
+    row-gap: 12px;
+  }
+
+  .scene-web .web-service {
+    padding-top: 8px;
+  }
+
+  .scene-web .web-service h3 {
+    margin-bottom: 5px;
+  }
+}
+
+
+/* =========================================
+   35. RESPONSIVE — BALADINS TABLETTE
+   Portrait : 600 à 900 px
+========================================= */
+
+@media (min-width: 600px)
+  and (max-width: 900px)
+  and (orientation: portrait) {
+
+  .scene-web .web-project {
+    width: min(88%, 620px);
+  }
+
+  .scene-web .web-project-info h3 {
+    font-size: 30px;
+  }
+
+  .scene-web .web-project-info p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .scene-web .web-project-preview {
+    width: min(100%, 420px);
+    max-width: 420px;
+  }
+}
+
+
+/* =========================================
+   36. ACCESSIBILITÉ — MOUVEMENTS RÉDUITS
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -604,5 +1454,80 @@ html {
   *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .contact-button,
+  .contact-button-arrow,
+  .web-project-preview,
+  .web-project-preview img {
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   37. CONTACT — EFFETS AU SURVOL
+========================================= */
+
+.contact-button-arrow {
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.contact-button:focus-visible {
+  outline: 2px solid #42dfff;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  .contact-button:hover {
+    border-color: rgba(130, 170, 220, 0.65);
+    background: rgba(35, 30, 65, 0.40);
+
+    box-shadow:
+      0 0 10px rgba(66, 223, 255, 0.18),
+      0 0 22px rgba(155, 75, 255, 0.12);
+
+    transform: translateY(-3px);
+  }
+
+  .contact-button:hover .contact-button-arrow {
+    transform: translate(3px, -3px);
+  }
+}
+
+/* =========================================
+   CONTACT — LIEN MENTIONS LÉGALES
+========================================= */
+
+.scene-contact .legal-link {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  color: rgba(248, 250, 255, 0.65);
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+
+  pointer-events: auto;
+}
+
+.scene-contact .legal-link:hover,
+.scene-contact .legal-link:focus-visible {
+  color: #00d8f2;
+  text-decoration: underline;
+}
+
+@media (max-width: 430px) {
+  .scene-contact .legal-link {
+    bottom: 16px;
+    font-size: 11px;
   }
 }

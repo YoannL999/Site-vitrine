@@ -1,12 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta name="theme-color" content="#05070d">
-  <meta name="description" content="yo.@nline — L'ailleurs commence ici. Création web en Mayenne et univers interactif Mythweave.">
+
+  <meta
+    name="description"
+    content="yo.@nline — L'ailleurs commence ici. Création web en Mayenne et univers interactif Mythweave."
+  >
 
   <title>yo.@nline — L'ailleurs commence ici.</title>
 
@@ -16,129 +19,451 @@
 
 <body class="intro-running">
 
-  <!-- INTRODUCTION -->
+  <!-- ========================================
+       INTRODUCTION
+  ========================================= -->
+
   <div class="intro-curtain" aria-hidden="true"></div>
 
-  <!-- EN-TÊTE -->
+
+  <!-- ========================================
+       EN-TÊTE ET NAVIGATION
+  ========================================= -->
+
   <header class="site-header" id="top">
 
-    <a class="brand intro-logo" href="#accueil" aria-label="yo.@nline — accueil">
+    <!-- Logo -->
+    <a
+      class="brand intro-logo"
+      href="#accueil"
+      aria-label="yo.@nline — accueil"
+    >
       y<span class="cyan">o</span>.<span class="violet">@</span>n<span class="logo-line">line</span>
     </a>
 
+    <!-- Statut -->
     <span class="status">
       <span class="status-dot"></span>
       <span id="status-label">ONLINE</span>
     </span>
 
+    <!-- Localisation -->
     <span class="header-location">MAYENNE / FR</span>
 
-    <nav class="header-menu" aria-label="Navigation principale">
-      <a href="#accueil">ACCUEIL</a>
-      <a href="#mythweave">MYTHWEAVE</a>
+    <!-- Navigation principale -->
+    <nav
+      class="header-menu"
+      id="main-navigation"
+      aria-label="Navigation principale"
+    >
+      <a href="#accueil" data-scene="accueil">ACCUEIL</a>
+      <a href="#mythweave" data-scene="mythweave">MYTHWEAVE</a>
+      <a href="#web" data-scene="web">WEB</a>
+      <a href="#contact" data-scene="contact">CONTACT</a>
     </nav>
+
+    <!-- Bouton du menu mobile -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Ouvrir le menu"
+      aria-controls="main-navigation"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
   </header>
 
+
+  <!-- ========================================
+       CONTENU PRINCIPAL
+  ========================================= -->
+
   <main>
 
-     <!-- CONTENEUR DES DEUX ÉCRANS -->
+    <!-- Conteneur des quatre scènes cinématographiques -->
     <div class="cinematic-stage">
-    <div class="cinematic-screen">
+      <div class="cinematic-screen">
 
-    <!-- PAGE 1 : ACCUEIL -->
-    <section class="scene scene-home"
-             id="accueil"
-             aria-labelledby="home-title">
 
-      <div class="scene-bg home-bg" aria-hidden="true"></div>
-      <div class="scene-shade" aria-hidden="true"></div>
+        <!-- ====================================
+             SCÈNE 01 — ACCUEIL
+        ===================================== -->
 
-      <div class="scene-content home-content">
+        <section
+          class="scene scene-home"
+          id="accueil"
+          aria-labelledby="home-title"
+        >
 
-        <div class="eyebrow">
-          <span class="short-rule"></span>
-          <span>00 / HOME</span>
-        </div>
+          <!-- Décor -->
+          <div class="scene-bg home-bg" aria-hidden="true"></div>
+          <div class="scene-shade" aria-hidden="true"></div>
 
-        <h1 id="home-title">
-          L'AILLEURS<br>
-          COMMENCE <em>ICI.</em>
-        </h1>
+          <!-- Contenu -->
+          <div class="scene-content home-content">
 
-        <p class="scene-description">
-          Création numérique, horizons sans limites.
-        </p>
+            <div class="eyebrow">
+              <span class="short-rule"></span>
+              <span>01 / HOME</span>
+            </div>
 
-        <div class="scene-meta">
-          <div>
-            <span class="meta-label">CURRENT</span>
-            <strong>MYTHWEAVE</strong>
+            <h1 id="home-title">
+              L'AILLEURS<br>
+              COMMENCE <em>ICI.</em>
+            </h1>
+
+            <p class="scene-description">
+              Création numérique, horizons sans limites.
+            </p>
+
           </div>
 
-          <div>
-            <span class="meta-label">ACTIVITY</span>
-            <strong>DIGITAL CREATION</strong>
+          <!-- Indicateur de scène -->
+          <span class="scene-index">
+            01 — 04
+            <span class="index-arrow" aria-hidden="true">↓</span>
+          </span>
+
+        </section>
+
+
+        <!-- ====================================
+             SCÈNE 02 — MYTHWEAVE
+        ===================================== -->
+
+        <section
+          class="scene scene-mythweave"
+          id="mythweave"
+          aria-labelledby="myth-title"
+        >
+
+          <!-- Décor -->
+          <div class="scene-bg myth-bg" aria-hidden="true"></div>
+          <div class="scene-shade myth-shade" aria-hidden="true"></div>
+
+          <!-- Introduction Mythweave -->
+          <div class="scene-content myth-content">
+
+            <div class="eyebrow">
+              <span class="short-rule"></span>
+              <span>02 / PRODUCT</span>
+            </div>
+
+            <h2 id="myth-title">MYTHWEAVE.</h2>
+
+            <p class="myth-tagline">
+              Des histoires que l'on ne se contente pas de lire.
+            </p>
+
+            <p class="myth-copy">
+              Un univers d'aventures interactives où chaque
+              choix peut changer le récit.
+            </p>
+
+            <span class="myth-pill">
+              <span class="status-dot"></span>
+              EN DÉVELOPPEMENT
+            </span>
+
           </div>
-        </div>
+
+
+          <!-- Deuxième séquence : présentation du concept -->
+          <div class="myth-concept">
+
+            <!-- En-tête de l'encart -->
+            <div class="myth-concept-header">
+
+              <span class="myth-concept-label">
+                02 / MYTHWEAVE — LE CONCEPT
+              </span>
+
+              <h3>
+                DES HISTOIRES À VIVRE.<br>
+                DES MONDES À CRÉER.
+              </h3>
+
+              <p>
+                Mythweave est un moteur d'aventures interactives
+                inspiré des livres dont vous êtes le héros.
+              </p>
+
+            </div>
+
+
+            <!-- Les deux dimensions de Mythweave -->
+            <div class="myth-concept-grid">
+
+              <!-- Vivre -->
+              <div class="myth-concept-item">
+
+                <div class="myth-concept-item-title">
+
+                  <svg
+                    class="myth-concept-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 7v14"/>
+                    <path d="M3 18V5a1 1 0 0 1 1-1h3a5 5 0 0 1 5 5 5 5 0 0 1 5-5h3a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-4a4 4 0 0 0-4 2 4 4 0 0 0-4-2H4a1 1 0 0 1-1-1z"/>
+                  </svg>
+
+                  <h4>VIVRE</h4>
+
+                </div>
+
+                <p>
+                  Explorez des univers, faites vos choix
+                  et façonnez votre propre aventure.
+                </p>
+
+              </div>
+
+
+              <!-- Créer et partager -->
+              <div class="myth-concept-item">
+
+                <div class="myth-concept-item-title">
+
+                  <svg
+                    class="myth-concept-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L3 12.5V21h8.5z"/>
+                    <path d="m16 8-2 2"/>
+                    <path d="M3 21l9-9"/>
+                  </svg>
+
+                  <h4>CRÉER &amp; PARTAGER</h4>
+
+                </div>
+
+                <p>
+                  Imaginez vos histoires, construisez vos propres
+                  aventures interactives et partagez-les
+                  avec d'autres joueurs.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- Statut du projet -->
+            <div class="myth-concept-status">
+              PROJET EN DÉVELOPPEMENT
+            </div>
+
+          </div>
+
+
+          <!-- Indicateur de scène -->
+          <span class="scene-index">
+            02 — 04
+            <span class="index-arrow" aria-hidden="true">↓</span>
+          </span>
+
+        </section>
+
+
+        <!-- ====================================
+             SCÈNE 03 — WEB
+        ===================================== -->
+
+        <section
+          class="scene scene-web"
+          id="web"
+          aria-labelledby="web-title"
+        >
+
+          <!-- Décor -->
+          <div class="scene-bg web-bg" aria-hidden="true"></div>
+          <div class="scene-shade web-shade" aria-hidden="true"></div>
+
+
+          <!-- Introduction et prestations -->
+          <div class="scene-content web-content">
+
+            <div class="eyebrow">
+              <span class="short-rule"></span>
+              <span>03 / WEB</span>
+            </div>
+
+            <h2 id="web-title">WEB.</h2>
+
+            <p class="web-tagline">
+              Votre activité est locale. Votre horizon ne l'est pas.
+            </p>
+
+
+            <!-- Prestations Web -->
+            <div class="web-services">
+
+              <div class="web-service">
+                <h3>Création de sites vitrines</h3>
+                <p>
+                  Des sites uniques, modernes et adaptés à votre activité.
+                </p>
+              </div>
+
+              <div class="web-service">
+                <h3>Responsive</h3>
+                <p>
+                  Une expérience soignée sur ordinateur, tablette et mobile.
+                </p>
+              </div>
+
+              <div class="web-service">
+                <h3>Visibilité</h3>
+                <p>
+                  Les bases du référencement naturel pour être trouvé.
+                </p>
+              </div>
+
+              <div class="web-service">
+                <h3>Suivi &amp; réactivité</h3>
+                <p>
+                  Un interlocuteur local pour faire évoluer votre site.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Deuxième séquence : réalisation des Baladins -->
+          <div class="web-project">
+
+            <!-- Présentation -->
+            <div class="web-project-info">
+
+              <span class="web-project-label">
+                UNE RÉALISATION
+              </span>
+
+              <h3>
+                Les Baladins<br>
+                de Saint-Berthevin
+              </h3>
+
+              <p>
+                Un site vitrine conçu pour accompagner
+                une troupe de théâtre locale et mettre
+                en lumière ses spectacles.
+              </p>
+
+              <a
+                class="web-project-link"
+                href="https://www.theatre-baladins-saint-berthevin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                DÉCOUVRIR LE SITE
+                <span aria-hidden="true">↗</span>
+              </a>
+
+            </div>
+
+
+            <!-- Aperçu cliquable -->
+            <a
+              class="web-project-preview"
+              href="https://www.theatre-baladins-saint-berthevin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visiter le site des Baladins de Saint-Berthevin (nouvel onglet)"
+            >
+              <img
+                src="assets/images/baladins.png"
+                alt="Aperçu du site des Baladins de Saint-Berthevin"
+                loading="lazy"
+              >
+            </a>
+
+          </div>
+
+
+          <!-- Indicateur de scène -->
+          <span class="scene-index">
+            03 — 04
+            <span class="index-arrow" aria-hidden="true">↓</span>
+          </span>
+
+        </section>
+
+
+        <!-- ====================================
+             SCÈNE 04 — CONTACT
+        ===================================== -->
+
+        <section
+          class="scene scene-contact"
+          id="contact"
+          aria-labelledby="contact-title"
+        >
+
+          <!-- Décor -->
+          <div class="scene-bg contact-bg" aria-hidden="true"></div>
+          <div class="scene-shade contact-shade" aria-hidden="true"></div>
+
+
+          <!-- Contenu -->
+          <div class="scene-content contact-content">
+
+            <div class="eyebrow">
+              <span class="short-rule"></span>
+              <span>04 / CONTACT</span>
+            </div>
+
+            <h2 id="contact-title">
+              ET SI ON CONSTRUISAIT<br>
+              LA SUITE ENSEMBLE ?
+            </h2>
+
+            <p class="contact-tagline">
+              Vous avez un projet de site web, une idée
+              ou simplement une question ? Parlons-en.
+            </p>
+
+            <a
+              class="contact-button"
+              href="mailto:ADRESSE_EMAIL"
+            >
+              <span>ÉCRIVEZ-MOI</span>
+              <span class="contact-button-arrow" aria-hidden="true">↗</span>
+            </a>
+
+          </div>
+
+
+          <!-- Indicateur de scène -->
+          <span class="scene-index">04 — 04</span>
+          <a href="mentions-legales.html" class="legal-link">Mentions légales et données personnelles</a>
+
+        </section>
+
 
       </div>
+      <!-- Fin de cinematic-screen -->
 
-      <a class="explore" href="#mythweave">
-        DÉCOUVRIR <span aria-hidden="true">↓</span>
-      </a>
-
-      <span class="scene-index">01 — 02</span>
-
-    </section>
-
-    <!-- PAGE 2 : MYTHWEAVE -->
-    <section class="scene scene-mythweave"
-             id="mythweave"
-             aria-labelledby="myth-title">
-
-      <div class="scene-bg myth-bg" aria-hidden="true"></div>
-      <div class="scene-shade myth-shade" aria-hidden="true"></div>
-
-      <div class="scene-content myth-content">
-
-        <div class="eyebrow">
-          <span class="short-rule"></span>
-          <span>01 / PRODUCT</span>
-        </div>
-
-        <h2 id="myth-title">MYTHWEAVE</h2>
-
-        <p class="myth-tagline">
-          Des histoires que l'on ne se contente pas de lire.
-        </p>
-
-        <p class="myth-copy">
-          Un univers d'aventures interactives où chaque
-          choix peut changer le récit.
-        </p>
-
-        <span class="myth-pill">
-          <span class="status-dot"></span>
-          EN DÉVELOPPEMENT
-        </span>
-
-        <p class="myth-note">
-          La page de présentation dédiée sera ajoutée ultérieurement.
-        </p>
-
-      </div>
-
-      <a class="explore" href="#accueil">
-        RETOUR À L'ACCUEIL <span aria-hidden="true">↑</span>
-      </a>
-
-      <span class="scene-index">02 — 02</span>
-
-    </section>
-
-  </div><!-- Fin cinematic-screen -->
-  </div><!-- Fin cinematic-stage -->
+    </div>
+    <!-- Fin de cinematic-stage -->
 
   </main>
 
